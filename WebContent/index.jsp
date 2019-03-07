@@ -4,11 +4,27 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome to the Java EE World!</title>
+<title>Name Combiner</title>
+<script>
+function formValidation() {
+  var x = document.forms["nameCombinerForm"]["firstName"].value;
+  var y = document.forms["nameCombinerForm"]["lastName"].value;
+  if (x == "" && y == "") {
+    alert("First and Last name must be filled out");
+    return false;
+  }else if (x == ""){
+	  alert("First name must be filled out");
+	  return false;
+  }else if (y == ""){
+	  alert("Last name must be filled out");
+	  return false;
+  } 
+}
+</script>
 </head>
 <body>
 	<h1>Name Combiner</h1>
-	<form action="getNameServlet" method="post">
+	<form name="nameCombinerForm" action="getNameServlet" onsubmit="return formValidation()" method="post">
 	Enter your first name:
 	<input type="text" name="firstName" siza="10">
 	<br>Enter your last name:
